@@ -1,0 +1,17 @@
+# Visual Studio Code
+.vscode/
+.project
+.classpath
+.factorypath
+.settings
+
+# Mac OSX
+.DS_store
+
+# CLion
+.idea/
+
+# java sdk
+java/**/dependency-reduced-pom.xml
+**/*.iml
+**/target/
