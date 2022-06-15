@@ -49,5 +49,4 @@ jobs:
       env:
         GRAPHSCOPE_HOME: /opt/graphscope
       run: |
-        source ${GRAPHSCOPE_HOME}/conf/grape_jvm_opts
-        python3 runner.py --app com.alibaba.graphscope.example.Traverse --directed true
+        mvn exec::exec@python

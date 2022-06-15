@@ -21,6 +21,11 @@ import subprocess
 import sys
 import pathlib
 
+LOG_FORMAT = "[%(asctime)s]-[%(levelname)s]: %(message)s"
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
+logger = logging.getLogger("runner")
+
+
 import graphscope
 from graphscope import JavaApp
 from graphscope.dataset import load_p2p_network
@@ -37,12 +42,8 @@ JAVA_LONG = "java.lang.Long"
 JAVA_INT = "java.lang.Integer"
 JAVA_DOUBLE = "java.lang.Double"
 JAVA_FLOAT = "java.lang.Float"
-JAR_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(), "java", "target", "gs-java-template-0.1.jar")
+JAR_PATH = os.path.join(pathlib.Path(__file__).parent.resolve(),  "target", "gs-java-template-0.1.jar")
 
-#LOG_FORMAT = "[%(asctime)s]-[%(levelname)s]: %(message)s"
-
-#logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
-logger = logging.getLogger("runner")
 
 
 def parse_args():
@@ -60,7 +61,7 @@ def parse_args():
         "--jar_path",
         type=str,
         required=False,
-        default="{JAR_PATH}",
+        default="{}".format(JAR_PATH),
         help="The path where your packed jar resides.",
     )
     parser.add_argument(
