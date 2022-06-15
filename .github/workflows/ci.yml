@@ -41,7 +41,6 @@ jobs:
 
     - name : Build
       run : |
-        cd ${GITHUB_WORKSPACE}/java
         mvn clean install
 
 
